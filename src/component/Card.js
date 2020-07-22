@@ -9,6 +9,7 @@ class Card extends React.Component{
     }
 
   render(){
+    console.log("in card",this.props.data)
     return (
       <View style={styles.container}>
         <View>
@@ -16,9 +17,12 @@ class Card extends React.Component{
             source={{uri:this.props.data.avatar_url}}
             style={{width: 50, height: 50}}
         />
+
         </View>
+
         <View>
-            <Text>{this.props.data.login}</Text>
+          <Text>{this.props.data.login}</Text>
+
             <Text>{this.props.data.url}</Text>
         </View>
         </View>
@@ -30,13 +34,9 @@ class Card extends React.Component{
 };
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        flexDirection:"row",
-        justifyContent : "space-around",
+      height: 100,
         borderWidth : 1,
         borderColor : "#000",
-        marginHorizontal : 20,
-        marginVertical : 10
     }
   })
 

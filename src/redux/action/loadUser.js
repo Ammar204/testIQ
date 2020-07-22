@@ -4,9 +4,9 @@ import axios from 'axios'
 
     return (dispatch, getState) => {
 
-        axios.get(`https://api.github.com/search/users?q=${searchText}+in:user`).then(function (response) {
-            console.log(response.data.items)
-            dispatch({ type: 'LOAD_USERS', payload: response.data.items})
+        axios.get(`https://api.github.com/users/${searchText}`).then(function (response) {
+            console.log(response.data)
+            dispatch({ type: 'LOAD_USERS', payload: response.data})
 
         }).catch(function (error) {
             dispatch({ type: 'LOAD_QUOTE_FAILURE', payload: error })

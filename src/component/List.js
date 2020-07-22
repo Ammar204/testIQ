@@ -14,10 +14,11 @@ ComponentDidMount(){
 }
   render(){
     const { navigation } = this.props
+    const data={...this.props.dataFromState}
     return (
       
       <View>
-        <FlatList
+        {/* <FlatList
                 data={this.props.dataFromState}
                 numColumns={1}
             renderItem = { ({item}) => (
@@ -30,8 +31,14 @@ ComponentDidMount(){
                 
             )}
 
-            />
+            /> */}
 
+<TouchableOpacity onPress={()=> navigation.navigate('UserInfo',{
+                data:{data}
+              }
+              )}>
+                <Card data={data}/>
+              </TouchableOpacity>
       </View>
       
   );
@@ -42,7 +49,7 @@ ComponentDidMount(){
 
 function mapStateToProps(state) {
   return {
-      dataFromState : [...state]
+      dataFromState : {...state}
   }
 }
 export default connect(mapStateToProps)(List);
